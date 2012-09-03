@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_uninstal().
+ */
+function cubranding_uninstall() {
+	$fid = variable_get('cuheader_image_fid');
+
+  if (isset($fid)) {
+		$image = file_load($fid);
+
+    $block = block_load('cubranding', 'cuheader_block');
+
+    file_usage_delete($image, 'cubranding', 'block', $block->bid);
+
+    file_delete($image, TRUE);
+
+		variable_del('cuheader_image_fid');
+  }
+
+  variable_del('cuheader_color_scheme');
+  variable_del('cufooter_address');
+  variable_del('cufooter_zip');
+  variable_del('cufooter_phone');
+  variable_del('cufooter_email');
+}

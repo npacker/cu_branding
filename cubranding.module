@@ -1,0 +1,205 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function cubranding_block_info() {
+  $blocks = array();
+
+  $blocks['cuheader_block'] = array(
+    'info' => 'CU Header',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'status' => 1,
+    'region' => 'header',
+    'weight' => -100,
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+  );
+
+  $blocks['cufooter_block'] = array(
+    'info' => 'CU Footer',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'status' => 1,
+    'region' => 'footer',
+    'weight' => 100,
+    'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function cubranding_block_view($delta = '') {
+	$block = array();
+
+  $basepath = drupal_get_path('module', 'cubranding');
+  $site_name = variable_get('site_name');
+
+  switch ($delta) {
+    case 'cuheader_block':
+  		$fid = variable_get('cuheader_image_fid');
+
+  		if (isset($fid)) {
+  			$image = file_load($fid);
+  			$image_path = $image->uri;
+  		} else {
+  			$image_path = $basepath . '/images/temp_ltgray.png';
+  		}
+
+  		$image_info = image_get_info($image_path);
+
+  		$variables = array();
+
+  		$variables['cuheader_site_name'] = $site_name;
+  		$variables['cuheader_image_path'] = file_create_url($image_path);
+  		$variables['cuheader_image_width'] = $image_info['width'];
+  		$variables['cuheader_submit_image_path'] = file_create_url($basepath . '/images/submit.png');
+  		$variables['cuheader_color_scheme'] = variable_get('cuheader_color_scheme', 1);
+
+  		$block['subject'] = NULL;
+  		$block['content'] = array(
+  		  '#markup' => theme('cuheader', $variables),
+  		  '#attached' => array(
+  		    'css' => array($basepath . '/css/cuheader.css'),
+  		    'js' => array($basepath . '/js/cusearch.js'),
+  		  ),
+  		);
+
+		  break;
+	  case 'cufooter_block':
+      $variables = array();
+
+	    $variables['cufooter_site_name'] = $site_name;
+	    $variables['cufooter_address'] = variable_get('cufooter_address', 'University of Colorado');
+	    $variables['cufooter_zip'] = variable_get('cufooter_zip', '80309');
+	    $variables['cufooter_phone'] = variable_get('cufooter_phone', '(303) 735-3813');
+	    $variables['cufooter_email'] = variable_get('cufooter_email', 'assett@colorado.edu');
+	    $variables['cufooter_date'] = date('Y');
+
+      $block['subject'] = NULL;
+	    $block['content'] = array(
+        '#markup' => theme('cufooter', $variables),
+        '#attached' => array(
+          'css' => array($basepath . '/css/cufooter.css'),
+	      ),
+	    );
+
+      break;
+	}
+
+	return $block;
+}
+
+/**
+ * Implements template_preprocess_hook().
+ */
+function template_preprocess_cuheader(&$variables) {
+  switch ($variables['cuheader_color_scheme']) {
+    case 0:
+      $variables['cuheader_color_scheme'] = 'white';
+      break;
+    case 1:
+      $variables['cuheader_color_scheme'] = 'light';
+      break;
+    case 2:
+      $variables['cuheader_color_scheme'] = 'dark';
+      break;
+    case 3;
+      $variables['cuheader_color_scheme'] = 'black';
+      break;
+    default:
+      $variables['cuheader_color_scheme'] = 'light';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cubranding_theme() {
+  $themes = array();
+
+  $themes['cuheader'] = array(
+    'template' => 'template/cuheader',
+    'variables' => array(
+      'cuheader_site_name' => NULL,
+      'cuheader_image_path' => NULL,
+      'cuheader_image_width' => NULL,
+			'cuheader_submit_image_path' => NULL,
+      'cuheader_color_scheme' => NULL,
+    ),
+  );
+
+  $themes['cufooter'] = array(
+    'template' => 'template/cufooter',
+    'variables' => array(
+      'cufooter_site_name' => NULL,
+      'cufooter_address' => NULL,
+      'cufooter_zip' => NULL,
+      'cufooter_phone' => NULL,
+      'cufooter_email' => NULL,
+      'cufooter_date' => NULL,
+    ),
+  );
+
+  return $themes;
+}
+
+/**
+ * Implements hook_block_list_alter().
+ */
+function cubranding_block_list_alter(&$blocks) {
+  reset($blocks);
+  $first_key = key($blocks);
+
+  end($blocks);
+  $last_key = key($blocks);
+
+  foreach ($blocks as $bid => $block) {
+    if ($block->module == 'cubranding') {
+      if ($block->delta == 'cuheader_block' && $bid != $first_key) {
+        unset($blocks[$bid]);
+        $blocks = array_merge(array($bid => $block), $blocks);
+        $first_key = $bid;
+      }
+      if ($block->delta == 'cufooter_block' && $bid != $last_key) {
+        unset($blocks[$bid]);
+        $blocks[$bid] = $block;
+        $last_key = $bid;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function cubranding_permission() {
+  $permissions = array();
+
+  $permissions['administer cubranding'] = array(
+    'title' => 'Administer CU Branding',
+    'description' => 'Allows users to configure the official CU header and footer.',
+  );
+
+  return $permissions;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function cubranding_menu() {
+  $items = array();
+
+  $items['admin/config/system/cubranding'] = array(
+    'title' => 'CU Branding',
+    'description' => 'Configuration for the offical CU header and footer.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cubranding_form'),
+    'access arguments' => array('administer cubranding'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'cubranding.admin.inc',
+  );
+
+  return $items;
+}

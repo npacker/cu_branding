@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+/* clearfix
+ ----------------------------------------------------------------------------*/
+.clearfix:after {
+  border: none;
+  clear: both;
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  width: 100%;
+}
+
+/* formatting and typography
+ ----------------------------------------------------------------------------*/
+#cu-header {
+  position: relative;
+}
+
+#cu-site-name {
+  background-position: left top;
+  background-repeat: no-repeat;
+  height: 120px;
+  margin: 0;
+  padding: 0;
+}
+
+#cu-home-link {
+  display: block;
+  height: 120px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 100%;  
+}
+
+#cu-home-link:active,
+#cu-home-link:focus {
+  color: #ccc;
+}
+
+#cu-search-wrapper {
+  min-height: 63px;
+  min-width: 233px;
+  position: absolute;
+  right: 20px;
+  top: 28px;
+}
+
+#cu-search {
+  border-radius: 7px;
+  float: none;
+  font-size: 11px;
+  padding: 10px;
+}
+
+#cu-links {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 11px;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+#cu-links a {
+  color: inherit;
+}
+
+#cu-search-form {
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#cu-search-input-wrapper {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+#cu-search-input-wrapper input {
+  border: none;
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+#cu-search-input-wrapper #cu-search-input {
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  height: 16px;
+  line-height: 16px;
+  padding: 3px 5px;
+  width: 180px;
+}
+
+#cu-search-input-wrapper #cu-search-submit {
+  width: 23px;
+  height: 22px;
+}
+
+/* white color scheme
+ ----------------------------------------------------------------------------*/
+#cu-header.white {
+  background-color: #FFFFFF;
+}
+
+.white #cu-search {
+  background-color: #D6D6D6;
+}
+
+.white #cu-links {
+  color: #000000;
+}
+
+.white #cu-search-input {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+/* light color scheme
+ ----------------------------------------------------------------------------*/
+#cu-header.light {
+  background-color: #D9D9D9;
+}
+
+.light #cu-search {
+  background-color: #B7B7B7;
+}
+
+.light #cu-links {
+  color: #000000;
+}
+
+.light #cu-search-input {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+/* dark color scheme
+ ----------------------------------------------------------------------------*/
+#cu-header.dark {
+  background-color: #333333;
+}
+
+.dark #cu-search {
+  background-color: #545454;
+}
+
+.dark #cu-links {
+  color: #FFFFFF;
+}
+
+.dark #cu-search-input {
+  background-color: #CDCDCD;
+  color: #333333;
+}
+
+/* black color scheme
+ ----------------------------------------------------------------------------*/
+#cu-header.black {
+  background-color: #000000;
+}
+
+.black #cu-search {
+  background-color: #333333;
+}
+
+.black #cu-links {
+  color: #FFFFFF;
+}
+
+.black #cu-search-input {
+  background-color: #CDCDCD;
+  color: #000000;
+}

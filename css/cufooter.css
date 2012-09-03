@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+/* formatting
+ ----------------------------------------------------------------------------*/
+#cu-footer {
+  margin: 0;
+  padding: 0;  
+}
+
+#cu-footer-info {
+  float: left;
+  text-align: left;
+}
+
+#cu-footer-branding-copyright {
+  left: 50%;
+  position: absolute;
+  margin-left: -15%;
+  text-align: center;
+  width: 30%;
+}
+
+#cu-footer-credits {
+  float: right;
+  text-align: right;
+}
+
+/* typography
+ ----------------------------------------------------------------------------*/
+#cu-footer-name {
+  font-weight: bold;
+}
