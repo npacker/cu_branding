@@ -1,6 +1,6 @@
 <div id="cu-header" class="clearfix <?php echo $cuheader_color_scheme; ?>">
   <div id="cu-logo">
-    <h1 id="cu-site-name" style="background-image: url('<?php echo $cuheader_image_path; ?>'); width: <?php echo $cuheader_image_width; ?>px;"><a id="cu-home-link" href="/"><?php echo $cuheader_site_name; ?></a></h1>
+    <h1 id="cu-site-name" style="background-image: url('<?php echo $cuheader_image_path; ?>'); width: <?php echo $cuheader_image_width; ?>px;"><?php echo l($cuheader_site_name, '<front>', array('attributes' => array('id' => array('cu-home-link')))); ?></h1>
   </div>
   <div id="cu-search-wrapper">
     <div id="cu-search">

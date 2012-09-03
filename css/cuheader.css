@@ -2,7 +2,8 @@
 
 /* clearfix
  ----------------------------------------------------------------------------*/
-.clearfix:after {
+.clearfix:after,
+#cu-header .clearfix:after {
   border: none;
   clear: both;
   content: " ";
@@ -89,6 +90,9 @@
   float: left;
   padding: 0;
   margin: 0;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
 }
 
 #cu-search-input-wrapper #cu-search-input {

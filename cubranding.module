@@ -76,6 +76,7 @@ function cubranding_block_view($delta = '') {
 	    $variables['cufooter_phone'] = variable_get('cufooter_phone', '(303) 735-3813');
 	    $variables['cufooter_email'] = variable_get('cufooter_email', 'assett@colorado.edu');
 	    $variables['cufooter_date'] = date('Y');
+			$variables['cufooter_login_link'] = variable_get('cufooter_login_link', 0);
 
       $block['subject'] = NULL;
 	    $block['content'] = array(
@@ -139,6 +140,7 @@ function cubranding_theme() {
       'cufooter_phone' => NULL,
       'cufooter_email' => NULL,
       'cufooter_date' => NULL,
+			'cufooter_login_link' => NULL,
     ),
   );
 

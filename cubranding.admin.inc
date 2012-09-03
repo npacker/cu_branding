@@ -75,6 +75,13 @@ function cubranding_form() {
     '#size' => 30,
     '#maxlength' => 255,
   );
+	
+	$form['cufooter_fieldset']['cufooter_login_link'] = array(
+		'#type' => 'checkbox',
+		'#title' => 'Enable login link',
+		'#default_value' => variable_get('cufooter_login_link', 0),
+		'#return_value' => 1,
+	);
 
   $form['#validate'][] = 'cubranding_form_validate';
   $form['#submit'][] = 'cubranding_form_submit';
