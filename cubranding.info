@@ -1,7 +1,7 @@
 name = CU Branding
 description = Implements the official CU branding.
 core = 7.x
-version = 7.x-1.5
+version = 7.x-1.7
 files[] = cubranding.module
 dependencies[] = block
 dependencies[] = search
