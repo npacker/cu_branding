@@ -71,8 +71,8 @@ function cubranding_block_view($delta = '') {
       $variables = array();
 
 	    $variables['cufooter_site_name'] = $site_name;
-	    $variables['cufooter_address_1'] = variable_get('cufooter_address_1', 'Department Name');
-	    $variables['cufooter_address_2'] = variable_get('cufooter_address_2', 'University of Colorado');
+	    $variables['cufooter_address_1'] = variable_get('cufooter_address_1', 'University of Colorado');
+	    $variables['cufooter_address_2'] = variable_get('cufooter_address_2', 'Broadway');
 	    $variables['cufooter_zip'] = variable_get('cufooter_zip', '80310');
 	    $variables['cufooter_phone'] = variable_get('cufooter_phone', '(555) 555-5555');
 	    $variables['cufooter_email'] = variable_get('cufooter_email', 'example.email@colorado.edu');
