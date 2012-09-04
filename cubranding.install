@@ -27,6 +27,9 @@ function cubranding_uninstall() {
   variable_del('cufooter_login_link');
 }
 
+/**
+ * Address variable name cleanup.
+ */
 function cubranding_update_7150() {
 	$address = variable_get('cufooter_address');
 
