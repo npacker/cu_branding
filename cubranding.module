@@ -71,10 +71,11 @@ function cubranding_block_view($delta = '') {
       $variables = array();
 
 	    $variables['cufooter_site_name'] = $site_name;
-	    $variables['cufooter_address'] = variable_get('cufooter_address', 'University of Colorado');
-	    $variables['cufooter_zip'] = variable_get('cufooter_zip', '80309');
-	    $variables['cufooter_phone'] = variable_get('cufooter_phone', '(303) 735-3813');
-	    $variables['cufooter_email'] = variable_get('cufooter_email', 'assett@colorado.edu');
+	    $variables['cufooter_address_1'] = variable_get('cufooter_address_1', 'Department Name');
+	    $variables['cufooter_address_2'] = variable_get('cufooter_address_2', 'University of Colorado');
+	    $variables['cufooter_zip'] = variable_get('cufooter_zip', '80310');
+	    $variables['cufooter_phone'] = variable_get('cufooter_phone', '(555) 555-5555');
+	    $variables['cufooter_email'] = variable_get('cufooter_email', 'example.email@colorado.edu');
 	    $variables['cufooter_date'] = date('Y');
 			$variables['cufooter_login_link'] = variable_get('cufooter_login_link', 0);
 
@@ -135,7 +136,8 @@ function cubranding_theme() {
     'template' => 'template/cufooter',
     'variables' => array(
       'cufooter_site_name' => NULL,
-      'cufooter_address' => NULL,
+      'cufooter_address_1' => NULL,
+      'cufooter_address_2' => NULL,
       'cufooter_zip' => NULL,
       'cufooter_phone' => NULL,
       'cufooter_email' => NULL,
