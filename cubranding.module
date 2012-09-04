@@ -8,7 +8,7 @@ function cubranding_block_info() {
 
   $blocks['cuheader_block'] = array(
     'info' => 'CU Header',
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_CACHE_PER_ROLE,
     'status' => 1,
     'region' => 'header',
     'weight' => -100,
@@ -17,7 +17,7 @@ function cubranding_block_info() {
 
   $blocks['cufooter_block'] = array(
     'info' => 'CU Footer',
-    'cache' => DRUPAL_CACHE_GLOBAL,
+    'cache' => DRUPAL_CACHE_PER_ROLE,
     'status' => 1,
     'region' => 'footer',
     'weight' => 100,

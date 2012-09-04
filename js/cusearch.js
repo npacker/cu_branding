@@ -9,7 +9,9 @@
 				var pathArray = window.location.pathname.split('/'),
 					  i = 0;
 						
-				if (!pathArray[i]) ++i;
+				while (!pathArray[i]) {
+					++i;
+				}
 				
 				if (pathArray[i] === 'drupalconv') {
 					window.location = window.location.protocol + '//assettdev.colorado.edu/drupalconv/' + pathArray[i + 1] + searchString;
