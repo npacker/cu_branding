@@ -1,6 +1,6 @@
 ********************************************************************************
 *
-* Cu Branding Module 7.x-1.3
+* CU Branding Module 7.x-1.3
 *
 * Author: Nigel Pakcer
 * Organization: ASSETT
