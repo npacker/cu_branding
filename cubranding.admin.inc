@@ -44,10 +44,18 @@ function cubranding_form() {
     '#collapsible' => FALSE,
   );
 
-  $form['cufooter_fieldset']['cufooter_address'] = array(
+  $form['cufooter_fieldset']['cufooter_address_1'] = array(
     '#type' => 'textfield',
     '#title' => 'Address',
-    '#default_value' => html_entity_decode(variable_get('cufooter_address'), ENT_QUOTES, 'UTF-8'),
+    '#default_value' => html_entity_decode(variable_get('cufooter_address_1'), ENT_QUOTES, 'UTF-8'),
+    '#size' => 30,
+    '#maxlength' => 255,
+  );
+
+  $form['cufooter_fieldset']['cufooter_address_2'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Address 2',
+    '#default_value' => html_entity_decode(variable_get('cufooter_address_2'), ENT_QUOTES, 'UTF-8'),
     '#size' => 30,
     '#maxlength' => 255,
   );
@@ -75,7 +83,7 @@ function cubranding_form() {
     '#size' => 30,
     '#maxlength' => 255,
   );
-	
+
 	$form['cufooter_fieldset']['cufooter_login_link'] = array(
 		'#type' => 'checkbox',
 		'#title' => 'Enable login link',
@@ -93,7 +101,8 @@ function cubranding_form() {
  * Form validate handler.
  */
 function cubranding_form_validate($form, &$form_state) {
-  $form_state['values']['cufooter_address'] = check_plain($form_state['values']['cufooter_address']);
+  $form_state['values']['cufooter_address_1'] = check_plain($form_state['values']['cufooter_address_1']);
+  $form_state['values']['cufooter_address_2'] = check_plain($form_state['values']['cufooter_address_2']);
   $form_state['values']['cufooter_zip'] = check_plain($form_state['values']['cufooter_zip']);
   $form_state['values']['cufooter_phone'] = check_plain($form_state['values']['cufooter_phone']);
   $form_state['values']['cufooter_email'] = check_plain($form_state['values']['cufooter_email']);
