@@ -1,8 +1,10 @@
 <div id="cu-footer" class="clearfix">
   <div id="cu-footer-info">
     <span id="cu-footer-name"><?php echo $cufooter_site_name; ?></span><br />
-    <?php if (!empty($cufooter_address)) { ?>
-    <span id="cu-footer-street"><?php echo $cufooter_address; ?></span><br /><?php } ?>
+    <?php if (!empty($cufooter_address_1)) { ?>
+    <span id="cu-footer-street"><?php echo $cufooter_address_1; ?></span><br /><?php } ?>
+    <?php if (!empty($cufooter_address_2)) { ?>
+    <span id="cu-footer-street"><?php echo $cufooter_address_2; ?></span><br /><?php } ?>
     <?php if (!empty($cufooter_zip)) { ?>
     <span id="cu-footer-city-zip">Boulder, CO <?php echo $cufooter_zip; ?></span><br /><?php } ?>
     <?php if (!empty($cufooter_phone)) { ?>
