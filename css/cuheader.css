@@ -85,6 +85,7 @@
 }
 
 #cu-search-input-wrapper label {
+		display: inline;
 		text-indent: -9999px;
 }
 
