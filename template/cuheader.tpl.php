@@ -10,7 +10,9 @@
       <div id="cu-search-form-wrapper" class="clearfix">
         <form id="cu-search-form">
           <div id="cu-search-input-wrapper">
+          	<label for="cu-search-input">Enter search query</label>
             <input id="cu-search-input" type="text" value="Search this Site" onfocus="this.value=''" />
+            <label for="cu-search-submit">Submit search</label>
             <input id="cu-search-submit" type="image" value="Submit" border="0" size="22,23" src="<?php echo $cuheader_submit_image_path; ?>" />
           </div>
         </form>
