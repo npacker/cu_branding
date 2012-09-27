@@ -2,7 +2,7 @@
 *
 * CU Branding Module 8.x-1.x-dev
 *
-* Author: Nigel Pakcer
+* Author: Nigel Packer
 * Organization: ASSETT
 *
 ********************************************************************************
