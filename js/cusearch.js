@@ -1,13 +1,11 @@
 (function($) {
 	$(document).ready(function() {
 		$('#cu-search-form').submit(function(event) {
-			var searchString = $('#cu-search-input').val();
-			
-			searchString = '/search/node/' + searchString;
+			var searchString = '/search/node/' + $('#cu-search-input').val();
 			
 			if (window.location.hostname === 'assettdev.colorado.edu') {
 				var pathArray = window.location.pathname.split('/'),
-					  i = 0;
+					i = 0;
 						
 				while (!pathArray[i]) {
 					++i;
