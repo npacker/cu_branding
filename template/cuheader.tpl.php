@@ -5,7 +5,7 @@
   <div id="cu-search-wrapper">
     <div id="cu-search">
       <div id="cu-links">
-        CU: <a href="http://www.colorado.edu/">Home</a> &bull; <a href="http://www.colorado.edu/">A to Z</a> &bull; <a href="http://www.colorado.edu/">Campus Map</a>
+        CU: <a href="http://www.colorado.edu/">Home</a> &bull; <a href="http://www.colorado.edu/atoz">A to Z</a> &bull; <a href="http://www.colorado.edu/campusmap">Campus Map</a>
       </div>
       <div id="cu-search-form-wrapper" class="clearfix">
         <form id="cu-search-form">
